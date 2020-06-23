@@ -20,5 +20,29 @@ function signupPage() {
 }
 
 /***************************
-* ----- SIGNUP FUNCTION -----
-***************************/
+ * ----- SIGNUP FUNCTION -----
+ **************************/
+
+function signup( $post ) {
+
+    $user = new User();
+
+    try {
+        $user->setEmail($post['email']);
+    } catch (Exception $e) {
+        $error_msg = 'Email invalide.';
+    }
+    try {
+        $user->setPassword($post['password'], $post['password_confirm']);
+    } catch (Exception $e) {
+        $error_msg = 'Les mots de ne sont pas identiques.';
+    }
+    try {
+        $user->createUser();
+    } catch (Exception $e) {
+        $error_msg = 'Email déjà utilisé.';
+    }
+
+    require('view/auth/signupView.php');
+
+}
