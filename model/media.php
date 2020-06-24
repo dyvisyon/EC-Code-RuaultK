@@ -92,15 +92,30 @@ class Media {
 
     // Open database connection
     $db   = init_db();
-
     $req  = $db->prepare( "SELECT * FROM media WHERE title = ? ORDER BY release_date DESC" );
-    $req->execute( array( '%' . $title . '%' ));
+    $req->execute( array( $title ));
 
-    // Close databse connection
-    $db   = null;
+   // Close database connection
+    $db  = null;
+    return $req->fetchAll();
 
+  }
+
+  public static function displayMedias( $title ) {
+
+    $db = init_db();
+    $req = $db->prepare( "SELECT * FROM media ORDER BY release_date DESC" );
+    $req->execute(array($title));
+
+    $db = null;
     return $req->fetchAll();
 
   }
 
 }
+
+
+
+
+
+
