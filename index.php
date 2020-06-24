@@ -5,6 +5,8 @@ require_once( 'controller/homeController.php' );
 require_once( 'controller/loginController.php' );
 require_once( 'controller/signupController.php' );
 require_once( 'controller/mediaController.php' );
+require_once( 'controller/contactController.php' );
+require_once( 'controller/movieController.php' );
 
 /**************************
 * ----- HANDLE ACTION -----
@@ -39,6 +41,12 @@ if ( isset( $_GET['action'] ) ):
 
     break;
 
+    case 'contact':
+
+      contactPage();
+    
+    break;
+
     case 'logout':
 
       logout();
@@ -52,12 +60,18 @@ else:
     $user_id = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : false;
     if ($user_id):
         if(isset($_GET['media'])){
-            detailPage($_GET['media']);
-        } else {
-            mediaPage();
+          detailPage($_GET['media']);
+        } 
+        elseif (isset($_GET['watchMovie'])) {
+          moviePage($_GET['watchMovie']);
         }
+        else {
+          mediaPage();
+        }
+    
     else:
         homePage();
     endif;
+
 
 endif;

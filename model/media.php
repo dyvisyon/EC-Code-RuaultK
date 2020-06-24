@@ -116,7 +116,7 @@ class Media {
 
       $id = htmlentities($_GET['media']);
       $db   = init_db();
-      $req = $db->query('SELECT * FROM media AS me INNER JOIN genre ge On me.genre_id = ge.id WHERE me.id = \'' . $id . '\';');
+      $req = $db->query('SELECT * FROM media INNER JOIN genre On media.genre_id = genre.id WHERE media.id = \'' . $id . '\';');
       $req->execute(array( $id ));
       
       $db = null;

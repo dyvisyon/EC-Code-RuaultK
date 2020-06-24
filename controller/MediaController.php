@@ -26,5 +26,8 @@ function detailPage( $id ) {
         $media = Media::displayAMedia($id);
         require_once("view/detail.php");
     }
+    
 }
+
+
 
