@@ -13,15 +13,18 @@ function mediaPage() {
         $medias = Media::filterMedias($search);
     }else{
         $medias = Media::displayMedias($search);
-    }    
-	
-	//$medias = Media::displayMedias();
-	
-	
-	// $search = isset( $_GET['title'] ) ? $_GET['title'] : null;
-	// $medias = Media::filterMedias( $search );
-
+    }   
 
   require('view/mediaListView.php');
 
 }
+
+function detailPage( $id ) {
+
+    if ((isset ($id))){
+        // $id_checked = (int)($id);
+        $media = Media::displayAMedia($id);
+        require_once("view/detail.php");
+    }
+}
+

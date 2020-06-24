@@ -112,6 +112,17 @@ class Media {
 
   }
 
+  public static function displayAMedia( $id ) {
+
+      $id = htmlentities($_GET['media']);
+      $db   = init_db();
+      $req = $db->query('SELECT * FROM media AS me INNER JOIN genre ge On me.genre_id = ge.id WHERE me.id = \'' . $id . '\';');
+      $req->execute(array( $id ));
+      
+      $db = null;
+      return $req->fetch(PDO::FETCH_ASSOC);
+  }
+
 }
 
 

@@ -1,4 +1,5 @@
 <?php
+ini_set('display_errors', 'on');
 
 require_once( 'controller/homeController.php' );
 require_once( 'controller/loginController.php' );
@@ -22,8 +23,19 @@ if ( isset( $_GET['action'] ) ):
 
     case 'signup':
 
-      if ( !empty( $_POST ) ) signUp( $_POST );
+      if ( !empty( $_POST ) ) signup( $_POST );
       else signupPage();
+
+    break;
+
+    case 'mediaList':
+
+      $user_id = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : false;
+      if ($user_id):
+          mediaPage();
+      else:
+          homePage();
+      endif;
 
     break;
 
@@ -37,12 +49,15 @@ if ( isset( $_GET['action'] ) ):
 
 else:
 
-  $user_id = isset( $_SESSION['user_id'] ) ? $_SESSION['user_id'] : false;
-
-  if( $user_id ):
-    mediaPage();
-  else:
-    homePage();
-  endif;
+    $user_id = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : false;
+    if ($user_id):
+        if(isset($_GET['media'])){
+            detailPage($_GET['media']);
+        } else {
+            mediaPage();
+        }
+    else:
+        homePage();
+    endif;
 
 endif;
