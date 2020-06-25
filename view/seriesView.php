@@ -7,7 +7,7 @@
     	
     	<?php foreach( $media as $medias ): ?>
     		<?php $url = $medias['episode_url'] ?>
-    		<a href=javascript:void(0);  onclick="selectedSeries('<?php echo($url) ?>')">
+    		<a style="margin-bottom: 5px" class="btn btn-danger btn-sm" href=javascript:void(0);  onclick="selectedSeries('<?php echo($url) ?>')">
     			<p>Saison <?= $medias['season_num'] ?> / Episode <?= $medias["episode_num"] ?></p>
         	</a>
 
@@ -15,7 +15,7 @@
     </div>
 
     <div class="col-10">
-    	<iframe src="" id="frame" width="100%" height="60%"  allowfullscreen="" frameborder="0"></iframe>
+    	<iframe src="" id="frame" width="100%" height="50%"  allowfullscreen="" frameborder="0"></iframe>
     </div>
 
 </div>

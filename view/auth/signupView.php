@@ -39,6 +39,9 @@
             <span class="error-msg">
               <?= isset( $error_msg ) ? $error_msg : null; ?>
             </span>
+            <span class="error-msg" style="color: lightgreen">
+              <?= isset( $msg ) ? $msg : null; ?>
+            </span>
           </form>
         </div>
       </div>

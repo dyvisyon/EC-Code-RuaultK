@@ -4,7 +4,7 @@
 <div class="row">
     <div class="col-md-12">
         <h2 class="">Contacter Cod'Flix</h2>
-        <form action="" method="post">
+        <form action="" method="POST">
             <div class="col-md-6">
                 <div class="form-group">
                     <label for="inputname">Votre nom</label>

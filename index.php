@@ -8,6 +8,7 @@ require_once( 'controller/mediaController.php' );
 require_once( 'controller/contactController.php' );
 require_once( 'controller/movieController.php' );
 require_once( 'controller/seriesController.php' );
+require_once( 'controller/confirmController.php' );
 
 /**************************
 * ----- HANDLE ACTION -----
@@ -74,6 +75,9 @@ else:
         }
     
     else:
+        if (isset($_GET['mail'])) {
+            confirmPage();
+        }
         homePage();
     endif;
 

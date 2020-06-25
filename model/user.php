@@ -7,6 +7,8 @@ class User {
   protected $id;
   protected $email;
   protected $password;
+  protected $confirmkey;
+  protected $confirmed;
 
   public function __construct( $user = null ) {
 
@@ -14,6 +16,7 @@ class User {
       $this->setId( isset( $user->id ) ? $user->id : null );
       $this->setEmail( $user->email );
       $this->setPassword( $user->password, isset( $user->password_confirm ) ? $user->password_confirm : false );
+      $this->setConfirmkey($user->confirmkey);
     endif;
   }
 
@@ -41,8 +44,18 @@ class User {
       throw new Exception( 'Vos mots de passes sont différents' );
     endif;
 
-    $this->password = sha1($password);
+    $this->password = hash("sha256", $password);
   }
+
+  public function setConfirmkey($confirmkey)
+    {
+        $this->confirmkey = $confirmkey;
+    }
+
+    public function setConfirmed($confirmed)
+    {
+        $this->confirmed = $confirmed;
+    }
 
   /***************************
   * -------- GETTERS ---------
@@ -59,6 +72,16 @@ class User {
   public function getPassword() {
     return $this->password;
   }
+
+  public function getConfirmkey() {
+    return $this->confirmkey;
+  }
+
+  public function getConfirmed() {
+    return $this->confirmed;
+  }
+
+  
 
   /***********************************
   * -------- CREATE NEW USER ---------
@@ -78,11 +101,29 @@ class User {
     // Insert new user
     $req->closeCursor();
 
-    $req  = $db->prepare( "INSERT INTO user ( email, password ) VALUES ( :email, :password )" );
-    $req->execute( array(
-      'email'     => $this->getEmail(),
-      'password'  => $this->getPassword()
-    ));
+    $req = $db->prepare("INSERT INTO user ( email, password, confirmkey, confirmed  ) VALUES ( :email, :password, :confirmkey, :confirmed )");
+    
+    $req->execute(array( 'email' => $this->getEmail(), 'password' => $this->getPassword(), 'confirmkey' => $this->getConfirmkey(), 'confirmed' => $this->getConfirmed() ));
+
+    $user_mail = $this->getEmail();
+    $confirmkey = $this->getConfirmkey();
+    $message_confirm ='
+    <html>
+        <body>
+            <div align="center">
+                <a href="http://localhost:8888/index.php?mail='.urldecode($user_mail).'&key='.$confirmkey.'">Cliquez sur ce lien pour confirmer votre compte</a>
+            </div>
+        </body>
+    </html>
+    ';
+
+    $headers = "MIME-Version: 1.0\r\n";
+    $headers.= 'Content-Type: text/html; charset="utf-8"'."\n";
+    $headers.= "FROM: donotreply@codflix.com";
+    $headers.= 'Content-Transfer-Encoding: 8bit';
+
+    mail($user_mail, 'Validation de compte', $message_confirm, $headers);
+        
 
     // Close databse connection
     $db = null;
