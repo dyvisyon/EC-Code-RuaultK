@@ -20,7 +20,12 @@
           <ul>
             <li class="active"><a href="index.php?action=mediaList">Médias</a></li>
             <li><a href="index.php?action=contact">Nous contacter</a></li>
+            <?php 
+              $user_id = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : false;
+              if($user_id): 
+            ?>
             <li><a href="index.php?action=logout">Me déconnecter</a></li>
+            <?php endif; ?>
           </ul>
         </div>
       </nav>

@@ -3,19 +3,19 @@
 
 
 <div class="row">
-    <div class="col-2">
+    <div class="col-2" style="padding-bottom: 200px">
     	
     	<?php foreach( $media as $medias ): ?>
     		<?php $url = $medias['episode_url'] ?>
-    		<button class="btn_series" onclick="selectedSeries('<?php echo($url) ?>')">
+    		<a href=javascript:void(0);  onclick="selectedSeries('<?php echo($url) ?>')">
     			<p>Saison <?= $medias['season_num'] ?> / Episode <?= $medias["episode_num"] ?></p>
-        	</button>
+        	</a>
 
     	<?php endforeach; ?>
     </div>
 
     <div class="col-10">
-    	<iframe src="" id="frame" width="720" height="440" allowfullscreen="" frameborder="0"></iframe>
+    	<iframe src="" id="frame" width="100%" height="60%"  allowfullscreen="" frameborder="0"></iframe>
     </div>
 
 </div>
