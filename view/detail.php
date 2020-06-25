@@ -7,7 +7,13 @@
         <p><?= $media["name"]?> / <?= $media["type"]?> / <?= $media["release_date"]?></p>
         <h2>Synopsis :</h2>
         <p class="col-md-10 offset-1 text-justify"><?= $media["summary"]?></p>
-        <a href="index.php?watchMovie=<?= $media['title']; ?>">Regarder <?= $media['title'] ?></a>    
+
+        <?php if($media['type'] == 'Film'): ?>
+        	<a href="index.php?watchMovie=<?= $media['title']; ?>">Regarder <?= $media['title'] ?></a>
+        <?php else: ?>
+        	<a href="index.php?Series=<?= $media['title']; ?>">Regarder <?= $media['title'] ?></a>
+		<?php endif; ?>
+
     </div>
     
 </div>

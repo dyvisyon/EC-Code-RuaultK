@@ -7,6 +7,7 @@ require_once( 'controller/signupController.php' );
 require_once( 'controller/mediaController.php' );
 require_once( 'controller/contactController.php' );
 require_once( 'controller/movieController.php' );
+require_once( 'controller/seriesController.php' );
 
 /**************************
 * ----- HANDLE ACTION -----
@@ -64,6 +65,9 @@ else:
         } 
         elseif (isset($_GET['watchMovie'])) {
           moviePage($_GET['watchMovie']);
+        }
+        elseif (isset($_GET['Series'])) {
+          seriesPage($_GET['Series']);
         }
         else {
           mediaPage();
