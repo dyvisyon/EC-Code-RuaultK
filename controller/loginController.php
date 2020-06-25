@@ -4,8 +4,8 @@ session_start();
 
 require_once( 'model/user.php' );
 
-/****************************
-* ----- LOAD LOGIN PAGE -----
+  /****************************
+ * ----- LOAD LOGIN PAGE -----
 ****************************/
 
 function loginPage() {
@@ -21,8 +21,8 @@ function loginPage() {
 
 }
 
-/***************************
-* ----- LOGIN FUNCTION -----
+  /***************************
+ * ----- LOGIN FUNCTION -----
 ***************************/
 
 function login( $post ) {
@@ -49,8 +49,8 @@ function login( $post ) {
   require('view/auth/loginView.php');
 }
 
-/****************************
-* ----- LOGOUT FUNCTION -----
+  /****************************
+ * ----- LOGOUT FUNCTION -----
 ****************************/
 
 function logout() {

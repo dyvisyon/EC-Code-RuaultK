@@ -10,8 +10,8 @@ require_once( 'controller/movieController.php' );
 require_once( 'controller/seriesController.php' );
 require_once( 'controller/confirmController.php' );
 
-/**************************
-* ----- HANDLE ACTION -----
+  /**************************
+ * ----- HANDLE ACTION -----
 ***************************/
 
 if ( isset( $_GET['action'] ) ):

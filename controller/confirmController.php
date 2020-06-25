@@ -1,11 +1,18 @@
 <?php
 
 
-/***************************
- * ----- LOAD CONFIRM PAGE -----
- ***************************/
+   /******************************
+  * ----- LOAD CONFIRM PAGE -----
+ ******************************/
+
+ /*
+    Get mail and key in url and if they are sames as in database: set the var 'confirmed' to 1 for simulate a validation in the database
+
+    If there are errors, a message is displayed according to
+ */
 
 function confirmPage() {
+
 
     if(isset($_GET['mail'], $_GET['key']) AND !empty($_GET['mail']) AND !empty($_GET['key'])) {
         $alert = "";

@@ -14,8 +14,8 @@ class Movie {
     $this->setTitle( $media->title );
   }
 
-  /***************************
-  * -------- SETTERS ---------
+    /***************************
+   * -------- SETTERS ---------
   ***************************/
 
   public function setId( $id ) {
@@ -26,8 +26,8 @@ class Movie {
     $this->title = $title;
   }
 
-  /***************************
-  * -------- GETTERS ---------
+    /***************************
+   * -------- GETTERS ---------
   ***************************/
 
   public function getId() {
@@ -42,8 +42,8 @@ class Movie {
     return $this->movie_url;
   }
 
-  /***************************
-  * -------- GET LIST --------
+    /***************************
+   * -------- GET LIST --------
   ***************************/
 
   public static function displayMovie( $title ) {

@@ -1,8 +1,16 @@
 <?php
 
-/******************************
-* ----- LOAD CONTACT PAGE ----*
+  /******************************
+ * ----- LOAD CONTACT PAGE ----*
 ******************************/
+
+/*
+	Get all inputs in the contact form and send a mail to 'contact@codflix.com'
+
+	A message warns the user that his message has been sent. Then send him back to the home page.
+*/
+
+
 function contactPage() {
 
 

@@ -2,8 +2,8 @@
 
 require_once( 'model/user.php' );
 
-/***************************
-* ----- LOAD HOME PAGE -----
+  /***************************
+ * ----- LOAD HOME PAGE -----
 ***************************/
 
 function homePage() {

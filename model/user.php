@@ -83,8 +83,8 @@ class User {
 
   
 
-  /***********************************
-  * -------- CREATE NEW USER ---------
+    /***********************************
+   * -------- CREATE NEW USER ---------
   ************************************/
 
   public function createUser() {
@@ -102,7 +102,7 @@ class User {
     $req->closeCursor();
 
     $req = $db->prepare("INSERT INTO user ( email, password, confirmkey, confirmed  ) VALUES ( :email, :password, :confirmkey, :confirmed )");
-    
+
     $req->execute(array( 'email' => $this->getEmail(), 'password' => $this->getPassword(), 'confirmkey' => $this->getConfirmkey(), 'confirmed' => $this->getConfirmed() ));
 
     $user_mail = $this->getEmail();
@@ -130,8 +130,8 @@ class User {
 
   }
 
-  /**************************************
-  * -------- GET USER DATA BY ID --------
+    /**************************************
+   * -------- GET USER DATA BY ID --------
   ***************************************/
 
   public static function getUserById( $id ) {
@@ -148,8 +148,8 @@ class User {
     return $req->fetch();
   }
 
-  /***************************************
-  * ------- GET USER DATA BY EMAIL -------
+    /***************************************
+   * ------- GET USER DATA BY EMAIL -------
   ****************************************/
 
   public function getUserByEmail() {

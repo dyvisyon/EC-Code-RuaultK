@@ -16,8 +16,8 @@ class Series {
     $this->setTitle( $media->title );
   }
 
-  /***************************
-  * -------- SETTERS ---------
+    /***************************
+   * -------- SETTERS ---------
   ***************************/
 
   public function setId( $id ) {
@@ -28,8 +28,8 @@ class Series {
     $this->title = $title;
   }
 
-  /***************************
-  * -------- GETTERS ---------
+    /***************************
+   * -------- GETTERS ---------
   ***************************/
 
   public function getId() {
@@ -52,8 +52,8 @@ class Series {
     return $this->episode_url;
   }
 
-  /***************************
-  * -------- GET LIST --------
+    /***************************
+   * -------- GET LIST --------
   ***************************/
 
   public static function displaySeries( $title ) {

@@ -2,9 +2,13 @@
 
 require_once( 'model/media.php' );
 
-/***************************
-* ----- LOAD HOME PAGE -----
-***************************/
+  /****************************
+ * ----- LOAD MEDIA PAGE -----
+****************************/
+
+/*
+    Display all medias
+*/
 
 function mediaPage() {
 
@@ -19,10 +23,13 @@ function mediaPage() {
 
 }
 
+/*
+    Displays media details
+*/
+
 function detailPage( $id ) {
 
     if ((isset ($id))){
-        // $id_checked = (int)($id);
         $media = Media::displayAMedia($id);
         require_once("view/detail.php");
     }

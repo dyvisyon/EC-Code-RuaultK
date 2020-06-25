@@ -3,9 +3,14 @@
 require_once( 'model/movie.php' );
 
 
-/******************************
-* ----- LOAD WATCHER PAGE ----*
+  /******************************
+ * ----- LOAD WATCHER PAGE ----*
 ******************************/
+
+/*
+	Load the player of a movie
+*/
+
 function moviePage( $title ) {
 
     if ((isset ($title))){

@@ -20,8 +20,8 @@ class Media {
     $this->setTitle( $media->title );
   }
 
-  /***************************
-  * -------- SETTERS ---------
+    /***************************
+   * -------- SETTERS ---------
   ***************************/
 
   public function setId( $id ) {
@@ -48,8 +48,8 @@ class Media {
     $this->release_date = $release_date;
   }
 
-  /***************************
-  * -------- GETTERS ---------
+    /***************************
+   * -------- GETTERS ---------
   ***************************/
 
   public function getId() {
@@ -84,8 +84,8 @@ class Media {
     return $this->trailer_url;
   }
 
-  /***************************
-  * -------- GET LIST --------
+    /***************************
+   * -------- GET LIST --------
   ***************************/
 
   public static function filterMedias( $title ) {
